@@ -9,6 +9,7 @@ class Album extends React.Component {
     super();
 
     this.state = {
+      albumImage: '',
       artistName: '',
       albumName: '',
       songList: [],
@@ -24,25 +25,29 @@ class Album extends React.Component {
     const songs = await getMusics(id);
 
     this.setState({
+      albumImage: songs[0].artworkUrl100,
       artistName: songs[0].artistName,
       albumName: songs[0].collectionName,
       songList: songs,
     });
-  }
+  };
 
   render() {
-    const { artistName, albumName, songList } = this.state;
+    const { artistName, albumName, songList, albumImage } = this.state;
     return (
       <div>
         <Header />
         <div data-testid="page-album">
           <div className="album-container">
             <div className="current-album">
-              <h1 data-testid="artist-name">{ artistName }</h1>
-              <h2 data-testid="album-name">{ albumName }</h2>
+              <img src={ albumImage } alt="album" />
+              <h4 data-testid="artist-name">{artistName}</h4>
+              <p data-testid="album-name">{albumName}</p>
             </div>
             <div className="songs-container">
-              { songList.slice(1).map((elem) => <MusicCard key={ elem } song={ elem } />)}
+              {songList.slice(1).map((elem, index) => (
+                <MusicCard key={ index } song={ elem } />
+              ))}
             </div>
           </div>
         </div>

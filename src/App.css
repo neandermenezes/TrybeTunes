@@ -189,3 +189,47 @@ button {
   margin-left: 125px;
   width: 300px;
 }
+
+.album-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+}
+
+.current-album {
+  align-self: center;
+  width: 500px;
+}
+
+.current-album img {
+  border-radius: 5%;
+}
+
+.songs-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background-color: rgb(228, 226, 226);
+}
+
+.song-full {
+  display: flex;
+  border-top: 1px solid rgb(209, 208, 208);
+}
+
+.song-audio {
+  display: flex;
+  justify-content: space-between;
+  padding: 3px;
+  width: 500px;
+}
+
+.song-container img {
+  border-radius: 50%;
+  height: 45px;
+}
+
+.favorite-section {
+  align-self: center;
+  margin-left: 20px;
+}
