@@ -20,38 +20,42 @@ class Login extends React.Component {
   handleChange = ({ target }) => {
     const { value, name } = target;
     this.setState({ [name]: value }, this.handleButton);
-  }
+  };
 
   handleButton = () => {
     const { inputValue } = this.state;
-    if (inputValue.length >= MIN_NAME_LENGTH) this.setState({ isButtonDisabled: false });
-    else this.setState({ isButtonDisabled: true });
-  }
+    if (inputValue.length >= MIN_NAME_LENGTH) {
+      this.setState({ isButtonDisabled: false });
+    } else this.setState({ isButtonDisabled: true });
+  };
 
   handleApi = async () => {
     const { inputValue } = this.state;
     this.setState({ loading: true });
     await createUser({ name: inputValue });
     this.setState({ redirect: true });
-  }
+  };
 
   render() {
     const { inputValue, isButtonDisabled, redirect, loading } = this.state;
     const form = (
       <div data-testid="page-login">
-        <form>
-          <div className="form">
-            <label htmlFor="form-name">
-              Nome:
-              <input
-                name="inputValue"
-                value={ inputValue }
-                onChange={ this.handleChange }
-                id="form-name"
-                data-testid="login-name-input"
-                type="text"
-              />
-            </label>
+        <form className="form">
+          <img
+            id="trybe-tunes-img"
+            src="https://i.imgur.com/zphyBTN.jpeg"
+            alt="trybe"
+          />
+          <div className="form-container">
+            <input
+              name="inputValue"
+              value={ inputValue }
+              onChange={ this.handleChange }
+              id="form-name"
+              data-testid="login-name-input"
+              type="text"
+              placeholder="Name"
+            />
             <button
               disabled={ isButtonDisabled }
               type="button"
@@ -64,8 +68,10 @@ class Login extends React.Component {
         </form>
       </div>
     );
-    if (redirect) { return <Redirect to="/search" />; }
-    return (loading) ? <Loading /> : form;
+    if (redirect) {
+      return <Redirect to="/search" />;
+    }
+    return loading ? <Loading /> : form;
   }
 }
 
