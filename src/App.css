@@ -49,3 +49,82 @@ button {
    margin-top: 325px;
    color: rgb(24, 104, 24);
 }
+
+.header {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.header img {
+    height: 100px;
+    margin-left: 25px;
+}
+
+.upper-box {
+    align-items: center;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    height: 85px;
+    background: #023031;
+    box-shadow: 0px 4px 1px rgba(0, 0, 0, 0.25);
+}
+
+.user-container {
+    width: 198.7px;
+    height: 41.65px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 50px;
+    text-align: center;
+    margin-bottom: 15px;
+    margin-right: 25px;
+}
+
+.username {
+    padding: 10px;
+    font-size: 16px;
+    font-family: sans-serif;
+    font-style: oblique;
+    font-weight: 500;
+    line-height: 18px;
+    color: #29313D;
+}
+
+.lower-box {
+    background: #F0F2F5;
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    box-shadow: 4px 4px 4px 4px #a8a8a8;
+}
+
+.link-container {
+    display: flex;
+    height: 50px;
+    align-items: center;
+    background: #F0F2F5;
+    width: 33%;
+    justify-content: center;
+}
+
+.link-container-green {
+    display: flex;
+    height: 45px;
+    align-items: center;
+    background: #036B52;
+    width: 33%;
+    height: 50px;
+    justify-content: center;
+}
+
+.link {
+    color: black;
+    font-family: sans-serif;
+}
+
+.link-white {
+    color: white;
+    font-family: sans-serif;
+}

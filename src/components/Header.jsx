@@ -27,17 +27,43 @@ class Header extends React.Component {
           <img src="https://i.imgur.com/7jAetaD.png" alt="header" />
           <div className="user">
             {loading ? (
-              <p> Carregando... </p>
+              <div className="user-container">
+                <p className="username"> Carregando... </p>
+              </div>
             ) : (
-              <p data-testid="header-user-name">{user}</p>
+              <div className="user-container">
+                <p className="username" data-testid="header-user-name">{ user }</p>
+              </div>
             )}
           </div>
         </div>
         <div className="lower-box">
-          <div className="links">
-            <Link data-testid="link-to-search" to="/search" />
-            <Link data-testid="link-to-favorites" to="/favorites" />
-            <Link data-testid="link-to-profile" to="/profile" />
+          <div className="link-container">
+            <Link
+              className="link"
+              data-testid="link-to-search"
+              to="/search"
+            >
+              Procurar
+            </Link>
+          </div>
+          <div className="link-container-green">
+            <Link
+              className="link-white"
+              data-testid="link-to-favorites"
+              to="/favorites"
+            >
+              Favoritos
+            </Link>
+          </div>
+          <div className="link-container">
+            <Link
+              className="link"
+              data-testid="link-to-profile"
+              to="/profile"
+            >
+              Perfil
+            </Link>
           </div>
         </div>
       </div>
