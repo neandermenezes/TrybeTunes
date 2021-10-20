@@ -8,19 +8,20 @@ class AlbumCard extends React.Component {
     const { artworkUrl100, collectionName, artistName, collectionId } = info;
     return (
       <div className="album-card">
-        <img
-          className="album-image"
-          src={ artworkUrl100 }
-          alt="imagem-album"
-        />
-        <div className="album-description">
-          <h3 className="album-name">{collectionName}</h3>
-          <p className="album-artist">{artistName}</p>
-          <Link
-            to={ `album/${collectionId}` }
-            data-testid={ `link-to-album-${collectionId}` }
+        <Link
+          to={ `album/${collectionId}` }
+          data-testid={ `link-to-album-${collectionId}` }
+        >
+          <img
+            className="album-image"
+            src={ artworkUrl100 }
+            alt="imagem-album"
           />
-        </div>
+          <div className="album-description">
+            <h3 className="album-name">{collectionName}</h3>
+            <p className="album-artist">{artistName}</p>
+          </div>
+        </Link>
       </div>
     );
   }
