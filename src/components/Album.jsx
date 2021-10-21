@@ -4,7 +4,6 @@ import Header from './Header';
 import getMusics from '../services/musicsAPI';
 import MusicCard from './MusicCard';
 import Loading from './Loading';
-import { addSong, getFavoriteSongs, removeSong } from '../services/favoriteSongsAPI';
 
 class Album extends React.Component {
   constructor() {
@@ -16,20 +15,11 @@ class Album extends React.Component {
       albumName: '',
       songList: [],
       loading: false,
-      favoriteList: [],
     };
   }
 
   componentDidMount = () => {
     this.getAlbumSongs();
-    this.favoriteSongs();
-  }
-
-  favoriteSongs = async () => {
-    this.setState({ loading: true });
-    const favorites = await getFavoriteSongs();
-    this.setState({ loading: false, favoriteList: favorites });
-    console.log(favorites);
   }
 
   getAlbumSongs = async () => {
@@ -52,7 +42,6 @@ class Album extends React.Component {
       albumName, songList,
       albumImage,
       loading,
-      favoriteList,
     } = this.state;
     const display = (
       <div>
@@ -69,7 +58,6 @@ class Album extends React.Component {
                 <MusicCard
                   key={ index }
                   song={ elem }
-                  favorites={ favoriteList.some((e) => e.trackId === elem.trackId) }
                 />
               ))}
             </div>
