@@ -1,6 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { addSong, getFavoriteSongs } from '../services/favoriteSongsAPI';
+import {
+  addSong,
+  getFavoriteSongs,
+  removeSong,
+} from '../services/favoriteSongsAPI';
 import LoadingSmall from './LoadingSmall';
 
 class MusicCard extends React.Component {
@@ -14,29 +18,38 @@ class MusicCard extends React.Component {
 
   componentDidMount = async () => {
     this.getFavoriteSongList();
-  }
+  };
 
   getFavoriteSongList = async () => {
-    const { song: { trackId } } = this.props;
+    const {
+      song: { trackId },
+    } = this.props;
     const favoriteList = await getFavoriteSongs();
     const isFavorite = favoriteList.find((elem) => elem.trackId === trackId);
     if (isFavorite) {
       this.setState({ favorite: true });
     }
-  }
+  };
 
-  handleFavorite = async () => {
+  handleFavorite = async ({ target }) => {
     const { song } = this.props;
     this.setState({ loading: true });
-    await addSong(song);
-    this.setState({ loading: false, favorite: true });
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    console.log(value);
+    if (value) {
+      await addSong(song);
+      this.setState({ loading: false, favorite: true });
+    }
+    if (!value) {
+      await removeSong(song);
+      this.setState({ loading: false, favorite: false });
+    }
   };
 
   render() {
     const { song } = this.props;
-    const { loading, favorite, favoriteList } = this.state;
+    const { loading, favorite } = this.state;
     const { previewUrl, trackName, artworkUrl30, trackId } = song;
-    console.log(favoriteList);
     return (
       <div className="song-container">
         <div className="song-full">
