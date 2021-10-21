@@ -17,7 +17,7 @@ class MusicCard extends React.Component {
     this.setState({ loading: true });
     await addSong(song);
     this.setState({ loading: false });
-  }
+  };
 
   render() {
     const { song } = this.props;
@@ -28,24 +28,24 @@ class MusicCard extends React.Component {
         <div className="song-full">
           <div className="song-audio">
             <img src={ artworkUrl30 } alt="aa" />
-            <p>{ trackName }</p>
-            { loading ? <LoadingSmall /> : '' }
+            <p>{trackName}</p>
+            {loading ? <LoadingSmall /> : ''}
             <audio data-testid="audio-component" src={ previewUrl } controls>
               <track kind="captions" />
               O seu navegador não suporta o elemento
               <code>audio</code>
             </audio>
           </div>
-          <div className="favorite-section">
-            <label htmlFor={ trackId } data-testid={ `checkbox-music-${trackId}` }>
-              Favorita
-              <input
-                id={ trackId }
-                type="checkbox"
-                onClick={ this.handleFavorite }
-              />
-            </label>
-          </div>
+          {/* <div className="favorite-section"> */}
+          <label
+            className="favorite-section"
+            htmlFor={ trackId }
+            data-testid={ `checkbox-music-${trackId}` }
+          >
+            Favorita
+            <input id={ trackId } type="checkbox" onClick={ this.handleFavorite } />
+          </label>
+          {/* </div> */}
         </div>
       </div>
     );
