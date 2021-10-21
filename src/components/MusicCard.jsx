@@ -4,11 +4,14 @@ import { addSong } from '../services/favoriteSongsAPI';
 import LoadingSmall from './LoadingSmall';
 
 class MusicCard extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+
+    const { favorites } = props;
 
     this.state = {
       loading: false,
+      checked: favorites,
     };
   }
 
@@ -21,7 +24,7 @@ class MusicCard extends React.Component {
 
   render() {
     const { song } = this.props;
-    const { loading } = this.state;
+    const { loading, checked } = this.state;
     const { previewUrl, trackName, artworkUrl30, trackId } = song;
     return (
       <div className="song-container">
@@ -36,16 +39,20 @@ class MusicCard extends React.Component {
               <code>audio</code>
             </audio>
           </div>
-          {/* <div className="favorite-section"> */}
           <label
             className="favorite-section"
             htmlFor={ trackId }
             data-testid={ `checkbox-music-${trackId}` }
           >
             Favorita
-            <input id={ trackId } type="checkbox" onClick={ this.handleFavorite } />
+            <input
+              name="checked"
+              id={ trackId }
+              checked={ checked }
+              type="checkbox"
+              onClick={ this.handleFavorite }
+            />
           </label>
-          {/* </div> */}
         </div>
       </div>
     );
@@ -59,6 +66,7 @@ MusicCard.propTypes = {
     artworkUrl30: PropTypes.string,
     trackId: PropTypes.number,
   }).isRequired,
+  favorites: PropTypes.bool.isRequired,
 };
 
 export default MusicCard;
