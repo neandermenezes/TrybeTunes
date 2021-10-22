@@ -1,10 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
 import {
   addSong,
   getFavoriteSongs,
   removeSong,
 } from '../services/favoriteSongsAPI';
+
 import LoadingSmall from './LoadingSmall';
 
 class MusicCard extends React.Component {
@@ -16,7 +18,7 @@ class MusicCard extends React.Component {
     };
   }
 
-  componentDidMount = async () => {
+  componentDidMount = () => {
     this.getFavoriteSongList();
   };
 
@@ -32,7 +34,7 @@ class MusicCard extends React.Component {
   };
 
   handleFavorite = async ({ target }) => {
-    const { song } = this.props;
+    const { song, favoriteUpdate } = this.props;
     this.setState({ loading: true });
     const value = target.type === 'checkbox' ? target.checked : target.value;
     console.log(value);
@@ -43,6 +45,7 @@ class MusicCard extends React.Component {
     if (!value) {
       await removeSong(song);
       this.setState({ loading: false, favorite: false });
+      favoriteUpdate();
     }
   };
 
@@ -90,6 +93,7 @@ MusicCard.propTypes = {
     artworkUrl30: PropTypes.string,
     trackId: PropTypes.number,
   }).isRequired,
+  favoriteUpdate: PropTypes.func.isRequired,
 };
 
 export default MusicCard;
