@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { getUser } from '../services/userAPI';
+import Loading from './Loading';
 
 class Header extends React.Component {
   constructor() {
@@ -21,20 +22,14 @@ class Header extends React.Component {
 
   render() {
     const { user, loading } = this.state;
-    return (
+    const display = (
       <div data-testid="header-component" className="header">
         <div className="upper-box">
           <img src="https://i.imgur.com/7jAetaD.png" alt="header" />
           <div className="user">
-            {loading ? (
-              <div className="user-container">
-                <p className="username"> Carregando... </p>
-              </div>
-            ) : (
-              <div className="user-container">
-                <p className="username" data-testid="header-user-name">{ user }</p>
-              </div>
-            )}
+            <div className="user-container">
+              <h1 className="username" data-testid="header-user-name">{ user }</h1>
+            </div>
           </div>
         </div>
         <div className="lower-box">
@@ -68,6 +63,7 @@ class Header extends React.Component {
         </div>
       </div>
     );
+    return loading ? <Loading /> : display;
   }
 }
 

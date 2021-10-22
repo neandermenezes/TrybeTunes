@@ -2,6 +2,7 @@ import React from 'react';
 import Header from './Header';
 import { getFavoriteSongs } from '../services/favoriteSongsAPI';
 import MusicCard from './MusicCard';
+import Loading from './Loading';
 
 class Favorites extends React.Component {
   constructor(props) {
@@ -9,6 +10,7 @@ class Favorites extends React.Component {
 
     this.state = {
       favoriteList: [],
+      loading: true,
     };
   }
 
@@ -18,7 +20,7 @@ class Favorites extends React.Component {
 
   getFavorites = async () => {
     const favorites = await getFavoriteSongs();
-    this.setState({ favoriteList: favorites });
+    this.setState({ favoriteList: favorites, loading: false });
   };
 
   componentDidUpdate = () => {
@@ -26,8 +28,8 @@ class Favorites extends React.Component {
   };
 
   render() {
-    const { favoriteList } = this.state;
-    return (
+    const { favoriteList, loading } = this.state;
+    const display = (
       <div>
         <Header />
         <div data-testid="page-favorites">
@@ -42,6 +44,7 @@ class Favorites extends React.Component {
         </div>
       </div>
     );
+    return loading ? <Loading /> : display;
   }
 }
 

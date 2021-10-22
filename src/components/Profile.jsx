@@ -21,29 +21,31 @@ class Profile extends React.Component {
     this.setState({ user: userDetails });
   }
 
+  editProfile() {
+    return (
+      <Link to="/profile/edit">
+        <p>Editar perfil</p>
+      </Link>
+    );
+  }
+
   render() {
     const { user } = this.state;
     return (
-      <div>
+      <>
         <Header />
         <div data-testid="page-profile">
-          <div className="profile-image">
+          <Link to="/profile/edit">
+            Editar perfil
+          </Link>
+          <div>
             <img data-testid="profile-image" src={ user.image } alt="foto do usuario" />
-            <Link to="/profile/edit">
-              <button type="button"> Editar perfil </button>
-            </Link>
-          </div>
-          <div className="profile-email">
-            <p>{ user.email }</p>
-          </div>
-          <div className="profile-description">
+            <h2>{ user.name }</h2>
+            <h3>{ user.email }</h3>
             <p>{ user.description }</p>
           </div>
-          <div className="profile-name">
-            <p>{ user.name }</p>
-          </div>
         </div>
-      </div>
+      </>
     );
   }
 }
