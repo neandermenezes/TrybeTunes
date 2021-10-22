@@ -36,6 +36,8 @@ class Album extends React.Component {
     });
   };
 
+  t = () => console.log('TOTALLY NECESSARY FUNCTION, CLEARLY NOT A DESPERATE SOLUTION');
+
   render() {
     const {
       artistName,
@@ -56,6 +58,7 @@ class Album extends React.Component {
             <div className="songs-container">
               {songList.slice(1).map((elem, index) => (
                 <MusicCard
+                  favoriteUpdate={ this.t }
                   key={ index }
                   song={ elem }
                 />
