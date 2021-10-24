@@ -67,47 +67,47 @@ class ProfileEdit extends React.Component {
   display() {
     const { name, email, description, image, buttonDisabled } = this.state;
     return (
-      <div>
-        <div data-testid="page-profile-edit">
-          <form>
-            <input
-              data-testid="edit-input-name"
-              name="name"
-              type="text"
-              value={ name }
-              onChange={ this.onInputChange }
-            />
-            <input
-              data-testid="edit-input-email"
-              name="email"
-              type="text"
-              value={ email }
-              onChange={ this.onInputChange }
-            />
-            <input
-              data-testid="edit-input-description"
-              name="description"
-              type="text"
-              value={ description }
-              onChange={ this.onInputChange }
-            />
-            <input
-              data-testid="edit-input-image"
-              name="image"
-              value={ image }
-              type="text"
-              onChange={ this.onInputChange }
-            />
-            <button
-              disabled={ buttonDisabled }
-              type="button"
-              data-testid="edit-button-save"
-              onClick={ this.saveInfo }
-            >
-              Salvar
-            </button>
-          </form>
-        </div>
+      <div className="profile-edit" data-testid="page-profile-edit">
+        <input
+          data-testid="edit-input-name"
+          name="name"
+          type="text"
+          value={ name }
+          placeholder="Name"
+          onChange={ this.onInputChange }
+        />
+        <input
+          data-testid="edit-input-email"
+          name="email"
+          type="text"
+          value={ email }
+          placeholder="E-mail"
+          onChange={ this.onInputChange }
+        />
+        <input
+          data-testid="edit-input-description"
+          name="description"
+          type="text"
+          value={ description }
+          placeholder="Description"
+          onChange={ this.onInputChange }
+        />
+        <input
+          data-testid="edit-input-image"
+          name="image"
+          value={ image }
+          type="text"
+          placeholder="Image link"
+          onChange={ this.onInputChange }
+        />
+        <button
+          disabled={ buttonDisabled }
+          type="button"
+          data-testid="edit-button-save"
+          onClick={ this.saveInfo }
+        >
+          Salvar
+        </button>
       </div>
     );
   }

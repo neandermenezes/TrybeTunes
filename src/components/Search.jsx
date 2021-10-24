@@ -54,7 +54,7 @@ class Search extends React.Component {
       currentArtist,
       albuns,
     } = this.state;
-    return (
+    const display = (
       <div className="search-container">
         <Header />
         <div className="page-search" data-testid="page-search">
@@ -77,20 +77,22 @@ class Search extends React.Component {
             </button>
           </div>
         </div>
-        <div className="main">
-          {loading && <Loading />}
-          {showSearchResults && (
-            <div className="main-container">
-              <h2 className="main-title">{`Resultado de álbuns de: ${currentArtist}`}</h2>
-              <div className="albuns">
-                { albuns.length > 0 ? albuns.map((elem) => (
-                  <AlbumCard key={ elem.collectionId } info={ elem } />
-                )) : <h1>Nenhum álbum foi encontrado</h1>}
-              </div>
-            </div>
-          )}
-        </div>
       </div>
+    );
+    return (
+      <>
+        { loading ? <Loading /> : display }
+        {showSearchResults && (
+          <div className="main-container">
+            <h2 className="main-title">{`Resultado de álbuns de: ${currentArtist}`}</h2>
+            <div className="albuns">
+              { albuns.length > 0 ? albuns.map((elem) => (
+                <AlbumCard key={ elem.collectionId } info={ elem } />
+              )) : <h1>Nenhum álbum foi encontrado</h1>}
+            </div>
+          </div>
+        )}
+      </>
     );
   }
 }

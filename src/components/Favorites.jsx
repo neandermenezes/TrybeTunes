@@ -33,7 +33,7 @@ class Favorites extends React.Component {
       <div>
         <Header />
         <div data-testid="page-favorites">
-          <h2>Músicas favoritas:</h2>
+          <h2 className="main-title">Músicas favoritas:</h2>
           {favoriteList.map((elem, index) => (
             <MusicCard
               favoriteUpdate={ this.getFavorites }

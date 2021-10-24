@@ -34,16 +34,16 @@ class Profile extends React.Component {
     return (
       <>
         <Header />
-        <div data-testid="page-profile">
-          <Link to="/profile/edit">
-            Editar perfil
-          </Link>
+        <div className="profile" data-testid="page-profile">
           <div>
             <img data-testid="profile-image" src={ user.image } alt="foto do usuario" />
-            <h2>{ user.name }</h2>
-            <h3>{ user.email }</h3>
-            <p>{ user.description }</p>
+            <Link to="/profile/edit">
+              Editar perfil
+            </Link>
           </div>
+          <p>{ user.name }</p>
+          <p>{ user.email }</p>
+          <p>{ user.description }</p>
         </div>
       </>
     );

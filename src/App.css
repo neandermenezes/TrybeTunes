@@ -2,49 +2,9 @@
   box-sizing: border-box;
 }
 
-/* html , body , div , span , applet , object , iframe ,
-h1 , h2 , h3 , h4 , h5 , h6 , p , blockquote , pre ,
-a , abbr , acronym , address , big , cite , code ,
-del , dfn , em , img , ins , kbd , q , s , samp ,
-small , strike , strong , sub , sup , tt , var ,
-b , u , i , center ,
-dl , dt , dd , ol , ul , li ,
-fieldset , form , label , legend ,
-table , caption , tbody , tfoot , thead , tr , th , td ,
-article , aside , canvas , details , embed ,
-figure , figcaption , footer , header , hgroup ,
-menu , nav , output , ruby , section , summary ,
-time , mark , audio , video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+a {
+  text-decoration: none;
 }
-
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
-	display: block;
-}
-body {
-	line-height: 1;
-}
-ol, ul {
-	list-style: none;
-}
-blockquote, q {
-	quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
-}
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-} */
 
 body {
   background-color: #fafafa;
@@ -62,7 +22,7 @@ body {
   align-items: center;
   background-color: white;
   border-radius: 10px;
-  box-shadow: 1px 4px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 0.1px 3px 3px rgba(0, 0, 0, 0.25);
   display: flex;
   flex-direction: column;
   height: 314px;
@@ -71,7 +31,7 @@ body {
   width: 697px;
 }
 
-img {
+.form > img {
   height: 150px;
 }
 
@@ -82,7 +42,7 @@ input {
   width: 519px;
 }
 
-button {
+.form-container > button {
   background: #003be5;
   border-radius: 2px;
   box-shadow: 0.1px 4px 4px rgba(0, 0, 0, 0.25);
@@ -90,7 +50,7 @@ button {
   height: 40px;
   margin-top: 11px;
   padding: 8px 32px;
-  width: 553px;
+  width: 520px;
 }
 
 .loading h1 {
@@ -177,13 +137,13 @@ button {
 }
 
 .main-title {
-  color: #001813;
-  font-family: sans-serif;
+  font-family: monospace;
   font-size: 24px;
   font-style: normal;
   font-weight: 300;
   line-height: 25px;
-  margin-left: 60px;
+  margin-left: 80px;
+  margin-top: 100px;
 }
 
 .albuns {
@@ -195,29 +155,32 @@ button {
 }
 
 .album-card {
-  background: #c2c2c2;
-  border: 1px solid #e1e5eb;
+  background: linear-gradient(90deg, rgba(64, 64, 64, 1) 0%, rgba(198, 198, 198, 1) 100%);
   border-radius: 6px;
-  box-shadow: 0.1px 1px 2px rgba(0, 0, 0, 0.06) , 0.1px 1px 3px rgba(0, 0, 0, 0.1);
-  height: 340px;
+  box-shadow: 0.1px 3px 3px rgba(0, 0, 0, 0.06) , 0.1px 1px 3px rgba(55, 99, 55, 0.1);
   margin: 15px 5px;
   padding: 20px;
-  width: 290px;
 }
 
 .album-card img {
-  width: 246px;
+  border-radius: 50%;
+  box-shadow: 1px 2px 3px black;
+  margin-bottom: 5px;
+  margin-left: 10px;
+  padding: 10px 40px;
 }
 
 .album-description {
   border: 1px solid #e1e5eb;
   border-radius: 6px;
   box-shadow: 0.1px 1px 2px rgba(0, 0, 0, 0.06) , 0.1px 1px 3px rgba(0, 0, 0, 0.1);
+  color: black;
   display: flex;
   flex-direction: column;
   height: 150px;
   justify-content: space-evenly;
   text-align: center;
+  width: 200px;
 }
 
 .page-search {
@@ -234,8 +197,14 @@ button {
 }
 
 .artist-name-search button {
-  margin-left: 125px;
-  width: 300px;
+  background: #003be5;
+  border-radius: 2px;
+  box-shadow: 0.1px 4px 4px rgba(0, 0, 0, 0.25);
+  color: white;
+  height: 40px;
+  margin-top: 11px;
+  padding: 8px 32px;
+  width: 520px;
 }
 
 .album-container {
@@ -246,7 +215,14 @@ button {
 
 .current-album {
   align-self: center;
-  width: 500px;
+  background: linear-gradient(90deg, rgba(64, 64, 64, 1) 0%, rgba(198, 198, 198, 1) 100%);
+  box-shadow: 0.1px 4px 4px rgba(0, 0, 0, 0.25);
+  font-family: monospace;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 300;
+  margin-right: 100px;
+  padding: 20px;
 }
 
 .current-album img {
@@ -292,4 +268,75 @@ button {
   cursor: pointer;
   height: 15px;
   width: 15px;
+}
+
+.root {
+  align-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.profile {
+  align-self: center;
+  background-color: white;
+  border: 1px gray solid;
+  border-radius: 5%;
+  margin-top: 100px;
+  min-height: 350px;
+  padding: 20px;
+  width: 300px;
+}
+
+.profile p {
+  align-self: flex-start;
+  font-family: monospace;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 300;
+  text-decoration: underline;
+}
+
+.profile img {
+  border-radius: 50%;
+  box-shadow: 1px 3px 3px rgb(59, 59, 59);
+  width: 100px;
+}
+
+.profile > div {
+  align-content: center;
+  display: flex;
+  justify-content: center;
+}
+
+.profile a {
+  align-self: center;
+  background: #003be5;
+  border-radius: 2px;
+  box-shadow: 0.1px 4px 4px rgba(0, 0, 0, 0.25);
+  color: white;
+  margin-left: 20px;
+  padding: 10px;
+}
+
+.profile-edit {
+  align-self: center;
+  margin-top: 100px;
+  width: 450px;
+}
+
+.profile-edit > input {
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.profile-edit > button {
+  background: #003be5;
+  border-radius: 2px;
+  box-shadow: 0.1px 4px 4px rgba(0, 0, 0, 0.25);
+  color: white;
+  height: 40px;
+  margin-top: 11px;
+  padding: 8px 32px;
+  width: 100%;
 }
