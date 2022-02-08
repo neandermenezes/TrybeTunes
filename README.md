@@ -26,3 +26,9 @@ Languages:<br>
 The following tools and frameworks were used in the construction of the project:<br>
     <img src="https://img.shields.io/badge/react%20-%23323330.svg?&style=for-the-badge&logo=react&logoColor=%23F7DF1E"/>
     <img src="https://img.shields.io/badge/react_router%20-%2320232a.svg?&style=for-the-badge&logo=react&logoColor=%2361DAFB"/>
+    
+
+![Captura de tela de 2022-02-08 17-39-14](https://user-images.githubusercontent.com/87549369/153072924-03741e79-a488-4537-9b5c-e1365778d68b.png)
+![Captura de tela de 2022-02-08 17-40-45](https://user-images.githubusercontent.com/87549369/153072934-f27798c3-7686-4635-96e7-8fbf856cc660.png)
+![Captura de tela de 2022-02-08 17-40-58](https://user-images.githubusercontent.com/87549369/153072936-2fb3a6d6-3cb9-4ce3-87f1-8322551a2a98.png)
+![Captura de tela de 2022-02-08 17-41-29](https://user-images.githubusercontent.com/87549369/153072941-7bc7dc4f-e014-42e1-9e23-dfb5e90608cb.png)
